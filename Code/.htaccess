@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /mvc/
+RewriteRule ^([a-zA-Z0-9]+)$ ?controller=$1
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2&arg1=$3
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2&arg1=$3&arg2=$4

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2015 at 10:03 AM
+-- Generation Time: Jan 24, 2015 at 10:24 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -33,19 +33,6 @@ CREATE TABLE IF NOT EXISTS `astore` (
   `qaid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `qaid_idx` (`qaid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `qa`
---
-
-CREATE TABLE IF NOT EXISTS `qa` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `type` text,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -85,6 +72,18 @@ CREATE TABLE IF NOT EXISTS `qarelation` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `qstore`
+--
+
+CREATE TABLE IF NOT EXISTS `qstore` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -108,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Constraints for table `astore`
 --
 ALTER TABLE `astore`
-  ADD CONSTRAINT `qaid` FOREIGN KEY (`qaid`) REFERENCES `qa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `qaid` FOREIGN KEY (`qaid`) REFERENCES `qstore` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `qaalbum`
@@ -121,7 +120,7 @@ ALTER TABLE `qaalbum`
 -- Constraints for table `qarelation`
 --
 ALTER TABLE `qarelation`
-  ADD CONSTRAINT `qid` FOREIGN KEY (`qid`) REFERENCES `qa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `qid` FOREIGN KEY (`qid`) REFERENCES `qstore` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `aid` FOREIGN KEY (`aid`) REFERENCES `astore` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `album` FOREIGN KEY (`qaaid`) REFERENCES `qaalbum` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2015 at 09:52 AM
+-- Generation Time: Jan 24, 2015 at 10:03 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `qaalbum` (
   `auid` int(11) DEFAULT NULL,
   `quid` int(11) DEFAULT NULL,
   `like` int(11) DEFAULT NULL,
-  `status` tinytext,
+  `status` text,
   PRIMARY KEY (`id`),
   KEY `asker_idx` (`quid`),
   KEY `answeruser_idx` (`auid`)
@@ -90,12 +90,12 @@ CREATE TABLE IF NOT EXISTS `qarelation` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `usename` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+  `name` text,
+  `usename` text,
+  `password` text,
   `phone` int(11) DEFAULT NULL,
-  `mail` varchar(45) DEFAULT NULL,
-  `sex` varchar(45) DEFAULT NULL,
+  `mail` text,
+  `sex` text,
   `birthday` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -114,8 +114,8 @@ ALTER TABLE `astore`
 -- Constraints for table `qaalbum`
 --
 ALTER TABLE `qaalbum`
-  ADD CONSTRAINT `askeruser` FOREIGN KEY (`quid`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `answeruser` FOREIGN KEY (`auid`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `answeruser` FOREIGN KEY (`auid`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `askeruser` FOREIGN KEY (`quid`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `qarelation`

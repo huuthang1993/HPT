@@ -36,4 +36,5 @@
 		include "views/index.php";
 	}
 	
+	include "views/templates/header.php";
 ?>

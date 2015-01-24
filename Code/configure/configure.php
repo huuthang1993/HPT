@@ -2,7 +2,7 @@
 	$host_name='localhost';
 	$host_account="root";
 	$host_password="";
-	$host_db="hackthon";
+	$host_db="htp";
 	$connect=mysql_connect($host_name,$host_account,$host_password);
 	mysql_query("SET character_set_results=utf8", $connect);
 	mysql_select_db($host_db,$connect);

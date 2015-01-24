@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /mvc/
+RewriteBase /htp/
 RewriteRule ^([a-zA-Z0-9]+)$ ?controller=$1
 RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2
 RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2&arg1=$3

@@ -1,8 +1,9 @@
 <?php
 	include "configure/configure.php";
 	include "controllers/core.php";
+	include "models/core.php";
 	//-----------------//
-	define("SITE", "http://localhost/mvc/");
+	define("SITE", "http://localhost/htp/");
 	//----------------//
 	$title = "CLB Hương Sen";
 	$description = "";
@@ -21,21 +22,18 @@
 					$controller->$_GET["function"]($_GET["arg1"]);
 				}else{
 					$controller->$_GET["function"]($_GET["arg1"], $_GET["arg2"]);
-				}
-
-				$title = $controller->getTitle();
-				$description = $controller->getDescription();
-				$body = $controller->getBody();
-				
+				}				
 			}else{
 				include "controllers/exception.php";
+				include "views/index.php";
 			}			
 		}else{
 			include "controllers/exception.php";
+			include "views/index.php";
 		}
 	}else{
 		include "controllers/exception.php";
+		include "views/index.php";
 	}
 	
-	include "views/index.php";
 ?>

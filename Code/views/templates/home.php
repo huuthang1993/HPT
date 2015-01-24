@@ -17,9 +17,29 @@
 			
 		</head>
 		<body>
-			<nav class="navbar navbar-inverse navbar-fixed-bottom" style="height:20px;min-height:10px;text-align:center;">
-			  <h style="color:white;"> HTP &copy; atWare-Hackathon-2015
-			  </h>
-			</nav>
+			<?php include 'header.php';?>
+			<div class="container-fluid" style="padding:0px;">
+					 <div class="jumbotron" style="margin-left:0px;padding:10px;">
+					 <h1 align="center" style="padding:0px;">WebSite Tittle</h1>      
+					</div>
+			</div>
+			<div class="container-fluid" ">
+						<div class="col-md-8 scrollit" style="border:2px solid red">
+						  <h>CONTENT</h>
+						  <div >
+						  <img src="<?=SITE ?>images/content.jpg" style="width:100%;height:80%"></img>
+						  </div>
+						</div>
+						
+						<div class="col-md-4 fixed" >
+						  <ul class="nav nav-pills nav-stacked">
+							<li class="active"><a >Top</a></li>
+							<li><a href="#">Top Mounth</a></li>
+								<li><a href="#">Top Week</a></li>
+								<li><a href="#">New Today</a></li> 
+						  </ul>
+						</div>
+			</div>
+			<?php include 'footer.php';?>
 		</body>
 	</html>

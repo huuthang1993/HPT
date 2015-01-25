@@ -51,5 +51,5 @@
 		}
 	}
 	
-	include "views/templates/header.php";
+	include "views/templates/home.php";
 ?>

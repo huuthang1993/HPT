@@ -25,10 +25,9 @@
 		
 		public function getQARelation(){
 				$qarelations = mysql_query("SELECT * FROM qarelation WHERE qaaid = '".$this->getId()."' ORDER BY ID DESC");
-				
 				$qarelationArray = array();
 				while($qarelation = mysql_fetch_array($qarelations)){
-					array_push($qarelationArray, new QARelation_Model($qarelations));
+					array_push($qarelationArray, new QARelation_Model($qarelation));
 				}
 				return $qarelationArray;			
 		}

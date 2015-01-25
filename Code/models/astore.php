@@ -1,10 +1,14 @@
 <?php
 	class AStore_Model extends Core_Model{
 		private $id;
+		private $title;
 		private $qaid; //qa id
 		
 		public function getId(){return $this->id;}
 		public function setId($id){$this->id = $id;}
+		
+		public function getTitle(){return $this->title;}
+		public function setTitle($title){$this->title = $title;}
 		
 		public function getQaid(){return $this->qaid;}
 		public function setQaid($qaid){$this->qaid = $qaid;}

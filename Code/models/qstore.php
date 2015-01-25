@@ -15,7 +15,7 @@
 		public function getId(){return $this->id;}
 		
 		public function setTitle($title){$this->title = $title;}
-		public function getTitle(){return $title;}
+		public function getTitle(){return $this->title;}
 	
 		public function getAttrs(){return get_object_vars($this);}
 		

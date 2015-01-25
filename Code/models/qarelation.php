@@ -19,10 +19,22 @@
 	
 		public function getAttrs(){return get_object_vars($this);}
 	
-		public function getAnswer(){return AStore_Model::find($this->getAid());}
+		public function getAnswer(){
+			if($this->getaid()){
+				return AStore_Model::find($this->getAid());
+			}else{
+				return null;
+			}				
+		}
 		
-		public function getQuestion(){return QStore_Model::find($this->getQid());}
-	
+		public function getQuestion(){
+			if($this->getQid()){
+				return QStore_Model::find($this->getQid());
+			}else{
+				return null;
+			}
+		}
+		
 		public static function find($id = null, $table = 'qarelation', $page = 1, $articlePerPage = 15){
 			if($id){
 				$qarelation = mysql_fetch_array(mysql_query("SELECT * FROM $table WHERE id = '$id'"));

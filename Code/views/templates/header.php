@@ -10,10 +10,9 @@
 						$account = User_Model::findByUserAndPassword(md5($acc[0]), md5($acc[1]));
 					?>
 					  <ul class="nav navbar-nav" >
-						<li><a href="#" class="navigator" >Home</a></li>
-						<li><a href="#">All Post</a></li>
-						<li><a href="#">Top</a></li>
-						<li><a href="#">Ask</a></li>
+						<li><a href="<?=SITE."home" ?>" class="navigator" >Home</a></li>
+						<li><a href="<?=SITE."home/top" ?>">Top</a></li>
+						<li><a href="<?=SITE."home/ask" ?>">Ask</a></li>
 					  </ul>
 					  <ul class="nav navbar-nav navbar-right">
 					  <li><a href="<?=SITE."home/signout"?>"><span class="glyphicon glyphicon-open"></span> Logout</a></li>
@@ -23,9 +22,8 @@
 					}else{						
 					?>
 					  <ul class="nav navbar-nav" >
-						<li><a href="#" class="navigator" >Home</a></li>
-						<li><a href="#">All Post</a></li>
-						<li><a href="#">Top</a></li>
+						<li><a href="<?=SITE."home" ?>" class="navigator" >Home</a></li>
+						<li><a href="<?=SITE."home/top" ?>">Top</a></li>
 					  </ul>
 					  <form method="post">
 						  <ul class="nav navbar-nav navbar-right">

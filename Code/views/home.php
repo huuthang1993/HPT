@@ -22,14 +22,16 @@
 						
 					</head>
 					<body>
-						<div class="container">';
+						<div class="container" style="margin-top: 2cm!important">';
 						include "views/templates/header.php";
 			echo '			
 							<div style="margin-top: 2cm;">
 								<div class="row">
 								</div>							
 								'.$this->getBody().'
-							</div>
+							</div>';
+						include "views/templates/footer.php";
+			echo '
 						</div>
 					</body>
 				</html>';					

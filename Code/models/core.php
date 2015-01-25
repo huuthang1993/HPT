@@ -1,15 +1,14 @@
 <?php
 	class Core_Model{
-		public function __construct($obj = null){
+		public function __construct($obj = null){			
 			if($obj){
-				$vars = get_object_vars($this);
-				
-				foreach($vars as $var){
-					$function = "set".ucfirst($var);
-					var_dump($function);
-					$this->$function($obj[$var]);
+				$vars = $this->getAttrs();
+				foreach($vars as $key => $var){
+					$function = "set".ucfirst($key);
+					$this->$function($obj[$key]);
 				}
 			}
 		}
+		
 	}
 ?>

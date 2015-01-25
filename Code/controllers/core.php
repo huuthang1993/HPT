@@ -1,5 +1,5 @@
 <?php
-	class core{
+	class Core{
 		private $title;
 		private $body;
 		private $description;

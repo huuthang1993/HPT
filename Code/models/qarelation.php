@@ -34,6 +34,13 @@
 				return null;
 			}
 		}
+		public function persitence(){
+			if($this->getId()){
+				mysql_query("UPDATE qarelation SET qid='".$this->getQid()."',aid='".$this->getAid()."',qaaid='".$this->getQaaid()."' WHERE id = '".$this->getId()."'");				
+			}else{
+				mysql_query("INSERT INTO qarelation(qid, aid, qaaid) VALUES ('".$this->getQid()."', '".$this->getAid()."', '".$this->getQaaid()."')");
+			}
+		}
 		
 		public static function find($id = null, $table = 'qarelation', $page = 1, $articlePerPage = 15){
 			if($id){

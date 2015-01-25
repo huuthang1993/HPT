@@ -91,6 +91,14 @@
 		if(isset($_POST["action"])){
 			switch($_POST['action']){
 				case 'ask':
+					$nextId = Core_Model::getNextIndex("qaalbum");
+					$qaalbum = new QAAlbum_Model();
+					$qaalbum->persitence();
+										
+					$qarelation = new QARelation_Model();
+					$qarelation->setQid($_POST["question"]);
+					$qarelation->setqaaid($nextId);
+					$qarelation->persitence();
 					
 					break;
 			}

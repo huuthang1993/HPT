@@ -35,6 +35,14 @@
 		public function getAnswerUser(){return User_Model::find($this->getAuid());}
 		
 		public function getQuestionUser(){return User_Model::find($this->getQuid());}
+
+		public function persitence(){
+			if($this->getId()){
+//				mysql_query("UPDATE qaalbum SET auid='".$this->getQid()."',aid='".$this->getAid()."',qaaid='".$this->getQaaid()."' WHERE id = '".$this->getId()."'");				
+			}else{
+				mysql_query("INSERT INTO qaalbum(auid, quid) VALUES ('".$this->getAuid()."', '".$this->getQuid()."')");
+			}
+		}
 		
 		public static function find($id = null, $table = 'qaalbum', $page = 1, $articlePerPage = 15){
 			if($id){

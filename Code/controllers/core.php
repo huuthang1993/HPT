@@ -16,5 +16,10 @@
 		
 		public function setDescription($description){$this->description = $description;}
 		public function getDescription(){return $this->description;}
+		
+		public function getAccount(){
+			$acc = split("_", $_COOKIE["acc"]);
+			return User_Model::findByUserAndPassword(md5($acc[0]), md5($acc[1]));
+		}
 	}
 ?>

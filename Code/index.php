@@ -91,8 +91,14 @@
 		if(isset($_POST["action"])){
 			switch($_POST['action']){
 				case 'ask':
+					$acc = split("_", $_COOKIE["acc"]);
+					$account = User_Model::findByUserAndPassword(md5($acc[0]), md5($acc[1]));
+
 					$nextId = Core_Model::getNextIndex("qaalbum");
 					$qaalbum = new QAAlbum_Model();
+					$qaalbum->setAuid($_POST["userid"]);
+					$qaalbum->setQuid($account->getId());
+					$qaalbum->setStatus("2");
 					$qaalbum->persitence();
 										
 					$qarelation = new QARelation_Model();
@@ -101,6 +107,31 @@
 					$qarelation->persitence();
 					
 					break;
+				case 'answer':
+					foreach($_POST["answer"] as $key => $ans){
+						if($ans != ""){
+							$nextId = Core_Model::getNextIndex("astore");
+							
+							$QARelation = QARelation_Model::find($key);
+							$QARelation->setAid($nextId);
+							$QARelation->persitence();
+							
+							$QAAlbum = $QARelation->getQAAlbum();
+							$QAAlbum->setStatus("3");
+							var_dump($QAAlbum);
+							$QAAlbum->persitence();
+							
+							$answer = new AStore_Model();
+							$answer->setTitle($ans);
+							$answer->persitence();							
+						}
+					}
+					break;
+				case 'like':
+					$QAAlbum = QAAlbum_Model::find($_POST["qaaid"]);
+					$QAAlbum->setLike1(((int)$QAAlbum->getLike1()) + 1);
+					$QAAlbum->persitence();
+				break;
 			}
 		}
 	}

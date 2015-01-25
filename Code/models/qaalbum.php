@@ -3,7 +3,7 @@
 		private $id;
 		private $quid;//question user id
 		private $auid;//answer user id
-		private $like;
+		private $like1;
 		private $status;
 		
 		public function getId(){return $this->id;}
@@ -15,8 +15,8 @@
 		public function getAuid(){return $this->auid;}
 		public function setAuid($auid){$this->auid = $auid;}
 		
-		public function getLike(){return $this->like;}
-		public function setLike($like){$this->like = $like;}		
+		public function getlike1(){return $this->like1;}
+		public function setlike1($like1){$this->like1 = $like1;}		
 		
 		public function getStatus(){return $this->status;}
 		public function setStatus($status){$this->status = $status;}
@@ -38,9 +38,9 @@
 
 		public function persitence(){
 			if($this->getId()){
-//				mysql_query("UPDATE qaalbum SET auid='".$this->getQid()."',aid='".$this->getAid()."',qaaid='".$this->getQaaid()."' WHERE id = '".$this->getId()."'");				
+				mysql_query("UPDATE qaalbum SET auid='".$this->getAuid()."',quid='".$this->getQuid()."',status='".$this->getStatus()."',like1='".$this->getlike1()."' WHERE id = '".$this->getId()."'");
 			}else{
-				mysql_query("INSERT INTO qaalbum(auid, quid) VALUES ('".$this->getAuid()."', '".$this->getQuid()."')");
+				mysql_query("INSERT INTO qaalbum(auid, quid, status, like1) VALUES ('".$this->getAuid()."', '".$this->getQuid()."', '".$this->getStatus()."', 0)");
 			}
 		}
 		
@@ -62,6 +62,15 @@
 				return $qaalbumArray;
 			}
 		}
-		
+	
+		public static function findByStatus($status, $auid, $table = 'qaalbum'){
+			$qaalbums = mysql_query("SELECT * FROM $table WHERE status = '".$status."' AND auid = '".$auid."' ORDER BY ID DESC");
+
+			$qaalbumArray = array();
+			while($qaalbum = mysql_fetch_array($qaalbums)){
+				array_push($qaalbumArray, new QAAlbum_Model($qaalbum));
+			}
+			return $qaalbumArray;			
+		}
 	}
 ?>

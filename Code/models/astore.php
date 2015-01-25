@@ -15,6 +15,14 @@
 		
 		public function getAttrs(){return get_object_vars($this);}
 		
+		public function persitence(){
+			if($this->getId()){
+				mysql_query("UPDATE astore SET title='".$this->getTitle()."',qaid='".$this->getQaid()."' WHERE id = '".$this->getId()."'");	
+			}else{
+				mysql_query("INSERT INTO astore(title, qaid) VALUES ('".$this->getTitle()."', '".$this->getQaid()."')");
+			}
+		}
+		
 		public static function find($id = null, $table = 'astore', $page = 1, $articlePerPage = 15){
 			if($id){
 				$astore = mysql_fetch_array(mysql_query("SELECT * FROM $table WHERE id = '$id'"));

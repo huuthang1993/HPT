@@ -32,21 +32,29 @@
 				
 				$bodyText = $bodyText.
 				'
-				<table class="table">
-					<thead>
-					  <tr>
-						<th>'.$questionUser->getName().'</th>
-						<th>'.$answerUser->getName().'</th>
-					  </tr>
-					</thead>
-					<tbody>
-						'.$albumText.'
-					<tbody>
-				</table>';
+				<div style="border-radius: 10px;border: green solid 5px; margin: 1cm">
+					<table class="table" style="" >
+						<thead>
+						  <tr>
+							<th width="50%">'.$questionUser->getName().'</th>
+							<th width="50%">'.$answerUser->getName().'</th>
+						  </tr>
+						</thead>
+							'.$albumText.'
+							<tr>
+								<td>
+									<form method="post">
+										<input type="hidden" name="action" value="like">
+										<input type="hidden" name="qaaid" value="'.$album->getId().'">
+										<button type="submit" class="btn btn-danger">Like</button> <span class="badge" style="font-size: 20px">'.$album->getLike1().'</span>
+									</form>
+								<td>
+					</table>
+				</div>';
 			}
 
 			$views = new Home_View();
-			$views->setTitle("Trang chủ");
+			$views->setTitle("Home");
 			$views->setDescription("");
 			$views->setBody($bodyText);
 			
@@ -86,8 +94,9 @@
 						<button type="submit" class="btn btn-success" style="width:100px">Ask</button>
 					</form>				
 				';				
+				
 				$views = new Home_View();
-				$views->setTitle("Trang chủ");
+				$views->setTitle("Ask");
 				$views->setDescription("");
 				$views->setBody($bodyText);
 				
@@ -106,14 +115,55 @@
 						<td><a href="'.SITE.'home/ask/'.$user->getId().'">'.$user->getName().'</a>';
 				}
 				
+				$bodyText = 
+				'<table class="table">
+					'.$bodyText.'
+				</table>';
+				
 				$views = new Home_View();
-				$views->setTitle("Trang chủ");
+				$views->setTitle("Ask");
 				$views->setDescription("");
 				$views->setBody($bodyText);
 				
 				$views->show();
 			}
 			
+		}
+		
+		public function answer(){
+			$account = $this->getAccount();			
+			$QAAlbums = QAAlbum_Model::findByStatus(2, $account->getId());
+			$bodyText = "";
+			$text = "";
+			
+			$i = 0;
+			foreach($QAAlbums as $QAAlbum){				
+				$QARealtions = $QAAlbum->getQARelation();
+				foreach($QARealtions as $QARealtion){
+					$i++;
+					$text = $text .
+					'<div class="form-group">
+						<label>Question '.$i.'?</label>
+						<input type="text" class="form-control" id="q1" name="answer['.$QARealtion->getid().']" placeholder="Answer question '.$i.'!" >
+					</div>
+					';					
+				}
+				
+			}
+			
+			$bodyText = '
+				<form role="form" method="post">
+					<input type="hidden" name="action" value="answer">
+					'.$text.'
+					<input type="submit" class="btn btn-info" value="Answer">
+				</form>
+			';
+			$views = new Home_View();
+			$views->setTitle("Ask");
+			$views->setDescription("");
+			$views->setBody($bodyText);
+			
+			$views->show();
 		}
 	}
 ?>

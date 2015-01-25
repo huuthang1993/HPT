@@ -34,9 +34,15 @@
 				return null;
 			}
 		}
+		
+		public function getQAAlbum($table= 'qaalbum'){			
+			return new QAAlbum_Model(mysql_fetch_array(mysql_query("SELECT * FROM $table WHERE id = '".$this->getQaaid()."'")));
+		}
+		
+
 		public function persitence(){
 			if($this->getId()){
-				mysql_query("UPDATE qarelation SET qid='".$this->getQid()."',aid='".$this->getAid()."',qaaid='".$this->getQaaid()."' WHERE id = '".$this->getId()."'");				
+				mysql_query("UPDATE qarelation SET qid='".$this->getQid()."',aid='".$this->getAid()."',qaaid='".$this->getQaaid()."' WHERE id = '".$this->getId()."'");	
 			}else{
 				mysql_query("INSERT INTO qarelation(qid, aid, qaaid) VALUES ('".$this->getQid()."', '".$this->getAid()."', '".$this->getQaaid()."')");
 			}

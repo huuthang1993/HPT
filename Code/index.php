@@ -3,9 +3,10 @@
 	include "controllers/core.php";
 	include "models/core.php";
 	//-----------------//
-	define("SITE", "http://localhost/htp/");
+	define("SITE", "http://localhost/htp/trunk/Code/");
+	define("atitle","HTP");
 	//----------------//
-	$title = "CLB Hương Sen";
+	$title = "HTP";
 	$description = "";
 	$avatar = "logo.png";
 	$body = "";
@@ -36,5 +37,5 @@
 		include "views/index.php";
 	}
 	
-	include "views/templates/header.php";
+	include "views/templates/home.php";
 ?>

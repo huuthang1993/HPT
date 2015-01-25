@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /htp/
+RewriteBase /htp/trunk/Code/
 RewriteRule ^([a-zA-Z0-9]+)$ ?controller=$1
 RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2
 RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ ?controller=$1&function=$2&arg1=$3

@@ -22,7 +22,7 @@
 						
 					</head>
 					<body>
-						<div class="container" style="margin-top: 2cm!important">';
+						<div class="container">';
 						include "views/templates/header.php";
 			echo '			
 							<div style="margin-top: 2cm;">

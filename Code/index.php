@@ -89,7 +89,11 @@
 	$account = checkLogin();
 	if($account){
 		if(isset($_POST["action"])){
-			
+			switch($_POST['action']){
+				case 'ask':
+					
+					break;
+			}
 		}
 	}
 //-----------------------------------------------	

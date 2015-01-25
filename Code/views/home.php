@@ -22,9 +22,15 @@
 						
 					</head>
 					<body>
-						<div class="container">'
-						.$this->getBody().
-						'</div>
+						<div class="container">';
+						include "views/templates/header.php";
+			echo '			
+							<div style="margin-top: 2cm;">
+								<div class="row">
+								</div>							
+								'.$this->getBody().'
+							</div>
+						</div>
 					</body>
 				</html>';					
 		}

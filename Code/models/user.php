@@ -68,7 +68,7 @@
 		}
 		
 		public static function findByUserAndPassword($user_md5_md5, $password_md5_md5){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM 'user' WHERE md5(md5(USER)) = '$user_md5_md5' AND md5(md5(PASSWORD)) = '$password_md5_md5'"));
+			$user = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE md5(md5(username)) = '$user_md5_md5' AND md5(md5(password)) = '$password_md5_md5'"));
 			if($user)
 				return new User_Model($user);
 			else 

@@ -20,7 +20,6 @@
 		 <div class="col-md-8" style="border:2px solid red; margin:10px;border-radius: 25px;">
 			
 			<div class="row" >
-			<a href="#" style="margin-left:30px">PostName </a>
 			</div>
 			  <div class="row">
 			  <div class="col-md-8">

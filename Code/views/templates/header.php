@@ -31,8 +31,9 @@
 						  <ul class="nav navbar-nav navbar-right">
 							<li><input tyle="text" style="margin-left:5px;margin-top:15px;width:100px;border-radius: 5px;border:none" id="username" name = "username" placeholder="User Name"></input></li>
 							<li><input tyle="text" style="margin-left:5px;margin-top:15px;width:100px;border-radius: 5px;border:none" id="password" name="password" placeholder="Password"></input></li>					
-							<li><button type="submit"> <span class="glyphicon glyphicon-log-in"></span> Login</button></li>
-							<li><a href="#" style="margin-right:10px"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+							<li><button type="submit" class="btn btn-primary btn-sm" style="margin-left:5px;margin-top:10px"> <span class="glyphicon glyphicon-log-in"></span> Login</button></li>
+							
+							<li><button type="submit" class="btn btn-primary btn-sm" style="margin-left:5px;margin-top:10px;margin-right:35px"> <span class="glyphicon Sign Up"></span> Sign Up</button></li>
 						  </ul>
 					  </form>
 					

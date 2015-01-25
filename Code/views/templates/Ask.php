@@ -30,7 +30,7 @@
 					<form role="form">
 						<div class="form-group">
 						  <label for="usename">Username to be asked:</label>
-						  <input type="email" class="form-control" id="usename" name="usename" placeholder="Enter UserName">
+						  <input type="t" class="form-control" id="usename" name="usename" placeholder="Enter UserName">
 						</div>
 						<div class="form-group">
 						  <label for="sel1">Question 1:</label>

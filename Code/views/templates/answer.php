@@ -17,47 +17,28 @@
 			
 		</head>
 		<body>
-		 <div class="col-md-8" style="border:2px solid pink; margin:10px;border-radius: 25px;">			
+		 <div class="col-md-8" style="border:2px solid green; margin:10px;border-radius: 25px;">			
 			<div class="row" >
 			</div>
 			  <div class="row">
 			  <div class="col-md-8">
 					<div>
-					<B class="bg-danger" style="margin-top:5px">Ask an User !<B>
+					<B class="bg-danger" style="margin-top:5px">Answer your question!<B>
 					<hr>
 					</div>
 					<div>
 					<form role="form">
 						<div class="form-group">
-						  <label for="usename">Username to be asked:</label>
-						  <input type="email" class="form-control" id="usename" name="usename" placeholder="Enter UserName">
+						  <label for="q1">Question 1? (Fromt database)</label>
+						  <input type="text" class="form-control" id="q1" name="answer[]" placeholder="Answer question 1!" >
 						</div>
 						<div class="form-group">
-						  <label for="sel1">Question 1:</label>
-						  <select class="form-control" id="sel1">
-							<option>Are you human?	</option>
-							<option>Are you a idiot :D ?</option>
-							<option>Who is your idol?</option>
-							<option>Who is your favorite food?</option>
-						  </select>
+						  <label for="q2">Question 2? (Fromt database)</label>
+						  <input type="text" class="form-control" id="q2" name="answer[]" placeholder="Answer question 2!" >
 						</div>
 						<div class="form-group">
-						  <label for="sel1">Question 2:</label>
-						  <select class="form-control" id="sel1">
-							<option>Are you a idiot :D ?</option>
-							<option>Are you human?	</option>
-							<option>Who is your idol?</option>
-							<option>Who is your favorite food?</option>
-						  </select>
-						</div>
-						<div class="form-group">
-						  <label for="sel1">Question 3:</label>
-						  <select class="form-control" id="sel1">
-						  <option>Who is your idol?</option>
-							<option>Are you a idiot :D ?</option>
-							<option>Are you human?	</option>
-							<option>Who is your favorite food?</option>
-						  </select>
+						  <label for="q3">Question 3? (Fromt database)</label>
+						  <input type="text" class="form-control" id="q3" name="answer[]" placeholder="Answer question 3!" >
 						</div>
 						<button type="submit" class="btn btn-danger" style="width:100px">Ask</button>
 					  </form>

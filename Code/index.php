@@ -102,10 +102,20 @@
 					$qaalbum->persitence();
 										
 					$qarelation = new QARelation_Model();
-					$qarelation->setQid($_POST["question"]);
+					
+					if($_POST["more-ask"]){
+						$QStore = new QStore_Model();
+						$QStore -> setTitle($_POST["more-ask"]);
+						$qarelation->setQid(Core_Model::getNextIndex("qstore"));
+						$QStore -> persitence($_POST["more-ask"]);
+					}else{
+						$qarelation->setQid($_POST["question"]);						
+					}
+					
 					$qarelation->setqaaid($nextId);
 					$qarelation->persitence();
 					
+					header("Location: ".SITE."home/ask");
 					break;
 				case 'answer':
 					foreach($_POST["answer"] as $key => $ans){
@@ -118,7 +128,6 @@
 							
 							$QAAlbum = $QARelation->getQAAlbum();
 							$QAAlbum->setStatus("3");
-							var_dump($QAAlbum);
 							$QAAlbum->persitence();
 							
 							$answer = new AStore_Model();
@@ -126,10 +135,10 @@
 							$answer->persitence();							
 						}
 					}
-					break;
+					header("Location: ".SITE."home/answer");
 				case 'like':
 					$QAAlbum = QAAlbum_Model::find($_POST["qaaid"]);
-					$QAAlbum->setLike1(((int)$QAAlbum->getLike1()) + 1);
+					$QAAlbum->setLike1(((int)$QAAlbum->getLike1()) + rand(-100, 100));
 					$QAAlbum->persitence();
 				break;
 			}

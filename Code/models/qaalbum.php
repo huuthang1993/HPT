@@ -53,7 +53,7 @@
 					return null;
 				}
 			}else{
-				$qaalbums = mysql_query("SELECT * FROM $table ORDER BY ID DESC LIMIT ".($page * $articlePerPage)." OFFSET ".(($page - 1)*$articlePerPage));
+				$qaalbums = mysql_query("SELECT * FROM $table WHERE status <> '2' ORDER BY ID DESC LIMIT ".($page * $articlePerPage)." OFFSET ".(($page - 1)*$articlePerPage));
 	
 				$qaalbumArray = array();
 				while($qaalbum = mysql_fetch_array($qaalbums)){

@@ -18,6 +18,15 @@
 		public function getTitle(){return $this->title;}
 	
 		public function getAttrs(){return get_object_vars($this);}
+
+		public function persitence(){
+			if($this->getId()){
+				mysql_query("UPDATE qstore SET title='".$this->getTitle()."' WHERE id = '".$this->getId()."'");
+			}else{
+				mysql_query("INSERT INTO qstore(title) VALUES ('".$this->getTitle()."')");
+			}
+		}
+		
 		
 		public static function find($id = null, $table = 'qstore', $page = 1, $articlePerPage = 15){
 			if($id){

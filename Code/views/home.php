@@ -27,6 +27,7 @@
 			echo '			
 							<div style="margin-top: 2cm;">
 								<div class="row">
+									
 								</div>							
 								'.$this->getBody().'
 							</div>';

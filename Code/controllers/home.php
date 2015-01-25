@@ -46,7 +46,7 @@
 									<form method="post">
 										<input type="hidden" name="action" value="like">
 										<input type="hidden" name="qaaid" value="'.$album->getId().'">
-										<button type="submit" class="btn btn-danger">Like</button> <span class="badge" style="font-size: 20px">'.$album->getLike1().'</span>
+										<button type="submit" class="btn btn-danger">Funny Like</button> <span class="badge" style="font-size: 20px">'.$album->getLike1().'</span>
 									</form>
 								<td>
 					</table>
@@ -91,6 +91,13 @@
 								'.$questionText.'
 						  </select>
 						</div>
+
+						<div class="form-group">
+							<label for="more-ask">Question: </label>
+							<input type="text" class="form-control" name="more-ask" value="" placeholder="Or you can type your question!"/>
+						</div>
+
+						
 						<button type="submit" class="btn btn-success" style="width:100px">Ask</button>
 					</form>				
 				';				
@@ -140,10 +147,15 @@
 			foreach($QAAlbums as $QAAlbum){				
 				$QARealtions = $QAAlbum->getQARelation();
 				foreach($QARealtions as $QARealtion){
+					$question = $QARealtion->getQuestion();
 					$i++;
 					$text = $text .
 					'<div class="form-group">
-						<label>Question '.$i.'?</label>
+						<label>Question 
+							'.$i.'
+							<span class="question-title" style="display: none;">: 
+								'.$question->getTitle().'
+							</span></label>
 						<input type="text" class="form-control" id="q1" name="answer['.$QARealtion->getid().']" placeholder="Answer question '.$i.'!" >
 					</div>
 					';					
@@ -155,11 +167,21 @@
 				<form role="form" method="post">
 					<input type="hidden" name="action" value="answer">
 					'.$text.'
+					<input type="checkbox">Show question. <br>
 					<input type="submit" class="btn btn-info" value="Answer">
+					<script>
+						$(":checkbox").change(function(){
+							if($(this).is(":checked")){
+								$(".question-title").css({"display":"block"});
+							}else{
+								$(".question-title").css({"display":"none"});
+							}
+						});
+					</script>
 				</form>
 			';
 			$views = new Home_View();
-			$views->setTitle("Ask");
+			$views->setTitle("Answer");
 			$views->setDescription("");
 			$views->setBody($bodyText);
 			
